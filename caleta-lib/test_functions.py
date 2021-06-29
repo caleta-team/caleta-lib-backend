@@ -44,6 +44,9 @@ def testUploads():
     utils = CaletaUtils("http://localhost",5000)
 
     utils.saveStress(17,5,token)
+    utils.saveActivity(86, 6, token)
+    utils.saveRespiration(98, 7, token)
+
 
 if __name__ == '__main__':
     #initData()

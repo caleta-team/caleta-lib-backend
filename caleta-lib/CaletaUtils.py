@@ -4,8 +4,8 @@ import requests
 
 class CaletaUtils():
     TYPE_STRESS="stress"
-    TYPE_ACTIVITY="activity"
-    TYPE_RESPIRATION="respiration"
+    TYPE_ACTIVITY="act"
+    TYPE_RESPIRATION="resp"
 
     def __init__(self, server, port):
         self.servername = server
@@ -22,12 +22,32 @@ class CaletaUtils():
         r = requests.post(self.servername+":"+str(self.serverport)+"/"+endpoint,data=json.dumps(jsondata), headers=headers)
         return r.text
 
-    def saveStress(self,value,babyid,token):
+    def saveStress(self,value,babyid,token,name="",comments="",anomaly=False):
         data={}
-        data['name']=""
-        data['comments']=""
-        data['anomaly']=False
+        data['name']=name
+        data['comments']=comments
+        data['anomaly']=anomaly
         data['type'] = self.TYPE_STRESS
         data['value'] = value
         data['babyid'] = babyid
         self.__uploadInformation("event", data ,token)
+
+    def saveActivity(self,value,babyid,token,name="",comments="",anomaly=False):
+        data={}
+        data['name']=name
+        data['comments']=comments
+        data['anomaly']=anomaly
+        data['type'] = self.TYPE_ACTIVITY
+        data['value'] = value
+        data['babyid'] = babyid
+        self.__uploadInformation("event", data ,token)
+
+    def saveRespiration(self, value, babyid, token, name="", comments="", anomaly=False):
+            data = {}
+            data['name'] = name
+            data['comments'] = comments
+            data['anomaly'] = anomaly
+            data['type'] = self.TYPE_RESPIRATION
+            data['value'] = value
+            data['babyid'] = babyid
+            self.__uploadInformation("event", data, token)
