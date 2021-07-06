@@ -22,6 +22,13 @@ class CaletaUtils():
         r = requests.post(self.servername+":"+str(self.serverport)+"/"+endpoint,data=json.dumps(jsondata), headers=headers)
         return r.text
 
+    def uploadInformation2(self, endpoint, jsondata, token):
+        headers = {'token': token, 'Content-Type': 'application/json'}
+        print(str(jsondata) + " -- " + str(self.servername + ":" + str(self.serverport) + "/" + endpoint))
+        r = requests.post(self.servername + ":" + str(self.serverport) + "/" + endpoint, data=json.dumps(jsondata),
+                          headers=headers)
+        return r.text
+
     def saveStress(self,value,babyid,token,name="",comments="",anomaly=False):
         data={}
         data['name']=name
