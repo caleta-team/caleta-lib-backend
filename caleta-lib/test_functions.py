@@ -49,5 +49,5 @@ def testUploads():
 
 
 if __name__ == '__main__':
-    initData()
-    #testUploads()
+    #initData()
+    testUploads()

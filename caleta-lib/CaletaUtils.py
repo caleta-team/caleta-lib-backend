@@ -37,6 +37,7 @@ class CaletaUtils():
         data['type'] = self.TYPE_STRESS
         data['value'] = value
         data['babyid'] = babyid
+        print(data)
         self.__uploadInformation("event", data ,token)
 
     def saveActivity(self,value,babyid,token,name="",comments="",anomaly=False):
