@@ -17,6 +17,8 @@ class CaletaUtils():
         return r.text
 
     def __uploadInformation(self,endpoint,jsondata,token):
+        #if (1==1):
+        #    return
         headers = {'token': token,'Content-Type':'application/json'}
         print(str(jsondata) + " -- "+str(self.servername+":"+str(self.serverport)+"/"+endpoint))
         r = requests.post(self.servername+":"+str(self.serverport)+"/"+endpoint,data=json.dumps(jsondata), headers=headers)
@@ -48,6 +50,7 @@ class CaletaUtils():
         data['type'] = self.TYPE_ACTIVITY
         data['value'] = value
         data['babyid'] = babyid
+        print(data)
         self.__uploadInformation("event", data ,token)
 
     def saveRespiration(self, value, babyid, token, name="", comments="", anomaly=False):
@@ -58,4 +61,5 @@ class CaletaUtils():
             data['type'] = self.TYPE_RESPIRATION
             data['value'] = value
             data['babyid'] = babyid
+            print(data)
             self.__uploadInformation("event", data, token)
