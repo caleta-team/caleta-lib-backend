@@ -45,7 +45,7 @@ def initData():
 
 def testUploads():
     utils = CaletaUtils("http://vai.uca.es",5000)
-    babyid = 1
+    babyid = 100
     i=1
 
     #while i<100:
