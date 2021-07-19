@@ -17,19 +17,12 @@ class CaletaUtils():
         return r.text
 
     def __uploadInformation(self,endpoint,jsondata,token):
-        #if (1==1):
-        #    return
         headers = {'token': token,'Content-Type':'application/json'}
         print(str(jsondata) + " -- "+str(self.servername+":"+str(self.serverport)+"/"+endpoint))
         r = requests.post(self.servername+":"+str(self.serverport)+"/"+endpoint,data=json.dumps(jsondata), headers=headers)
         return r.text
 
-    def uploadInformation2(self, endpoint, jsondata, token):
-        headers = {'token': token, 'Content-Type': 'application/json'}
-        print(str(jsondata) + " -- " + str(self.servername + ":" + str(self.serverport) + "/" + endpoint))
-        r = requests.post(self.servername + ":" + str(self.serverport) + "/" + endpoint, data=json.dumps(jsondata),
-                          headers=headers)
-        return r.text
+
 
     def saveStress(self,value,babyid,token,name="",comments="",anomaly=False):
         data={}
@@ -37,18 +30,18 @@ class CaletaUtils():
         data['comments']=comments
         data['anomaly']=anomaly
         data['type'] = self.TYPE_STRESS
-        data['value'] = value
+        data['value'] = "{'value':"+str(value)+"}"
         data['babyid'] = babyid
         print(data)
         self.__uploadInformation("event", data ,token)
 
-    def saveActivity(self,value,babyid,token,name="",comments="",anomaly=False):
+    def saveActivity(self,left,right,down,babyid,token,name="",comments="",anomaly=False):
         data={}
         data['name']=name
         data['comments']=comments
         data['anomaly']=anomaly
         data['type'] = self.TYPE_ACTIVITY
-        data['value'] = value
+        data['value'] = "{'left':"+str(left)+",'right':"+str(right)+",'down':"+str(down)+"}"
         data['babyid'] = babyid
         print(data)
         self.__uploadInformation("event", data ,token)
@@ -59,7 +52,7 @@ class CaletaUtils():
             data['comments'] = comments
             data['anomaly'] = anomaly
             data['type'] = self.TYPE_RESPIRATION
-            data['value'] = value
+            data['value'] = "{'value':"+str(value)+"}"
             data['babyid'] = babyid
             print(data)
             self.__uploadInformation("event", data, token)

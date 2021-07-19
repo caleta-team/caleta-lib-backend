@@ -49,8 +49,10 @@ def testUploads():
     i=1
 
     while i<100:
-        stress_random = random.choice([True, False])
-        activity_random = random.randint(0, 100)
+        stress_random = random.randint(0, 100)
+        activity_random_left = random.randint(0, 100)
+        activity_random_right = random.randint(0, 100)
+        activity_random_down = random.randint(0, 100)
         resp_random = random.randint(50, 95)
 
         random_anomaly_activity = random.randint(0, 100)
@@ -64,7 +66,7 @@ def testUploads():
         if random_anomaly_stress > 80:
             anomaly_stress = True
         utils.saveStress(stress_random,babyid,token,"","",anomaly_stress)
-        utils.saveActivity(activity_random, babyid, token,"","",anomaly_act)
+        utils.saveActivity(activity_random_left,activity_random_right,activity_random_down, babyid, token,"","",anomaly_act)
         utils.saveRespiration(resp_random, babyid, token,"","",anomaly_res)
         i+=1
         sleep(3)
