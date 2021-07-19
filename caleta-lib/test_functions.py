@@ -48,28 +48,28 @@ def testUploads():
     babyid = 100
     i=1
 
-    #while i<100:
-    stress_random = random.randint(0, 100)
-    activity_random_left = random.randint(0, 100)
-    activity_random_right = random.randint(0, 100)
-    activity_random_down = random.randint(0, 100)
-    resp_random = random.randint(50, 95)
+    while i<100:
+        stress_random = random.randint(0, 100)
+        activity_random_left = random.randint(0, 100)
+        activity_random_right = random.randint(0, 100)
+        activity_random_down = random.randint(0, 100)
+        resp_random = random.randint(50, 95)
 
-    random_anomaly_activity = random.randint(0, 100)
-    random_anomaly_stress = random.randint(0, 100)
-    random_anomaly_resp = random.randint(0, 100)
-    anomaly_stress = anomaly_res = anomaly_act = False
-    if random_anomaly_resp>80:
-        anomaly_res = True
-    if random_anomaly_activity>80:
-        anomaly_act = True
-    if random_anomaly_stress > 80:
-        anomaly_stress = True
-    utils.saveStress(stress_random,babyid,token,"","",anomaly_stress)
-    utils.saveActivity(activity_random_left,activity_random_right,activity_random_down, babyid, token,"","",anomaly_act)
-    utils.saveRespiration(resp_random, babyid, token,"","",anomaly_res)
-    i+=1
-    sleep(3)
+        random_anomaly_activity = random.randint(0, 100)
+        random_anomaly_stress = random.randint(0, 100)
+        random_anomaly_resp = random.randint(0, 100)
+        anomaly_stress = anomaly_res = anomaly_act = False
+        if random_anomaly_resp>80:
+            anomaly_res = True
+        if random_anomaly_activity>80:
+            anomaly_act = True
+        if random_anomaly_stress > 80:
+            anomaly_stress = True
+        utils.saveStress(stress_random,babyid,token,"","",anomaly_stress)
+        utils.saveActivity(activity_random_left,activity_random_right,activity_random_down, babyid, token,"","",anomaly_act)
+        utils.saveRespiration(resp_random, babyid, token,"","",anomaly_res)
+        i+=1
+        sleep(3)
 
 
 if __name__ == '__main__':

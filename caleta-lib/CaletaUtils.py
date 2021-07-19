@@ -30,7 +30,7 @@ class CaletaUtils():
         data['comments']=comments
         data['anomaly']=anomaly
         data['type'] = self.TYPE_STRESS
-        data['value'] = "{'value':"+str(value)+"}"
+        data['value'] = "{\"value\":"+str(value)+"}"
         data['babyid'] = babyid
         print(data)
         self.__uploadInformation("event", data ,token)
@@ -41,7 +41,7 @@ class CaletaUtils():
         data['comments']=comments
         data['anomaly']=anomaly
         data['type'] = self.TYPE_ACTIVITY
-        data['value'] = "{'left':"+str(left)+",'right':"+str(right)+",'down':"+str(down)+"}"
+        data['value'] = "{\"left\":"+str(left)+",\"right\":"+str(right)+",\"down\":"+str(down)+"}"
         data['babyid'] = babyid
         print(data)
         self.__uploadInformation("event", data ,token)
@@ -52,7 +52,7 @@ class CaletaUtils():
             data['comments'] = comments
             data['anomaly'] = anomaly
             data['type'] = self.TYPE_RESPIRATION
-            data['value'] = "{'value':"+str(value)+"}"
+            data['value'] = "{\"value\":"+str(value)+"}"
             data['babyid'] = babyid
             print(data)
             self.__uploadInformation("event", data, token)
