@@ -24,24 +24,21 @@ def initData():
     #babys
     fun = CaletaUtils("http://vai.uca.es", 5000)
 
-    res=fun.uploadInformation2("baby", getBabyJSON("Frank","Zappa","https://rock101online.mx/wp-content/uploads/2019/12/frank-zappa-840x658.jpg"), token)
-    print(res)
-    fun.uploadInformation2("baby", getBabyJSON("Brian", "May","https://okdiario.com/img/2020/12/21/brian-may-655x368.jpg"),token)
-    fun.uploadInformation2("baby",getBabyJSON("David", "Gilmour", "https://cdns-images.dzcdn.net/images/artist/10ee71ec586e02afb05581c19291a9d9/264x264.jpg"),token)
-    fun.uploadInformation2("baby", getBabyJSON("Stevie", "Ray","https://images-na.ssl-images-amazon.com/images/I/91jTocNmWpL._SY450_.jpg"),token)
-    fun.uploadInformation2("baby", getBabyJSON("BB", "King",
-                                              "https://upload.wikimedia.org/wikipedia/commons/9/97/B.B._King_in_2009.jpg"),
-                          token)
-    fun.uploadInformation2("baby", getBabyJSON("Eric", "Clapton",
-                                              "https://as.com/tikitakas/imagenes/2021/05/18/portada/1621326137_062566_1621326606_noticia_normal_recorte1.jpg"),
+    res=fun.uploadInformation("baby", getBabyJSON("Jon","Doe","https://raisingchildren.net.au/__data/assets/image/0025/49165/premature-birth-feelingsnarrow.jpg"), token)
+    fun.uploadInformation("baby", getBabyJSON("Ozan", "Pitt","https://image.sciencenorway.no/1553802.jpg?imageId=1553802&width=1058&height=604"),token)
+    fun.uploadInformation("baby",getBabyJSON("Dayna", "Gates", "https://c.stocksy.com/a/eHV400/z9/1073570.jpg"),token)
+    fun.uploadInformation("baby", getBabyJSON("Kunal", "Krae","https://cdn.literacytrust.org.uk/media/images/neonatalblog2.5ad7c423.fill-950x365.jpg"),token)
+    fun.uploadInformation("baby", getBabyJSON("Ricardo", "Atkins",
+                                              "https://i.pinimg.com/originals/f5/fc/a6/f5fca67dd412a7c8d7a0c56ca278aeba.png"),
                           token)
 
+    '''
     fun.uploadInformation2("event", getEventJSON("Evento 1",0,"Comentarios 1",0),token)
     fun.uploadInformation2("event", getEventJSON("Evento 2",0, "Comentarios 2", 1), token)
     fun.uploadInformation2("event", getEventJSON("Evento 3",1, "Comentarios 3", 0), token)
     fun.uploadInformation2("event", getEventJSON("Evento 4",2, "Comentarios 4", 0), token)
     fun.uploadInformation2("event", getEventJSON("Evento 5",2, "Comentarios 5", 1), token)
-
+    '''
 
 def testUploads():
     utils = CaletaUtils("http://vai.uca.es",5000)
@@ -73,5 +70,5 @@ def testUploads():
 
 
 if __name__ == '__main__':
-    #initData()
-    testUploads()
+    initData()
+    #testUploads()

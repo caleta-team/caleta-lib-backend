@@ -16,7 +16,7 @@ class CaletaUtils():
         r = requests.get(self.servername+":"+str(self.serverport)+"/"+endpoint, headers=headers)
         return r.text
 
-    def __uploadInformation(self,endpoint,jsondata,token):
+    def uploadInformation(self,endpoint,jsondata,token):
         headers = {'token': token,'Content-Type':'application/json'}
         print(str(jsondata) + " -- "+str(self.servername+":"+str(self.serverport)+"/"+endpoint))
         r = requests.post(self.servername+":"+str(self.serverport)+"/"+endpoint,data=json.dumps(jsondata), headers=headers)
