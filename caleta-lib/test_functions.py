@@ -45,7 +45,7 @@ def testUploads():
     babyid = 100
     i=1
 
-    while i<100:
+    while i<1000:
         stress_random = random.randint(0, 100)
         activity_random_left = random.randint(0, 100)
         activity_random_right = random.randint(0, 100)
@@ -66,9 +66,9 @@ def testUploads():
         utils.saveActivity(activity_random_left,activity_random_right,activity_random_down, babyid, token,"","",anomaly_act)
         utils.saveRespiration(resp_random, babyid, token,"","",anomaly_res)
         i+=1
-        sleep(3)
+        sleep(1)
 
 
 if __name__ == '__main__':
-    initData()
-    #testUploads()
+    #initData()
+    testUploads()
