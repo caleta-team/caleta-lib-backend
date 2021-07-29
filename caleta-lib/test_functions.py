@@ -42,7 +42,7 @@ def initData():
 
 def testUploads():
     utils = CaletaUtils("http://vai.uca.es",5000)
-    babyid = 100
+    babyid = 1
     i=1
 
     while i<1000:
@@ -50,7 +50,7 @@ def testUploads():
         activity_random_left = random.randint(0, 100)
         activity_random_right = random.randint(0, 100)
         activity_random_down = random.randint(0, 100)
-        resp_random = random.randint(50, 95)
+        resp_random = random.randint(50, 100)
 
         random_anomaly_activity = random.randint(0, 100)
         random_anomaly_stress = random.randint(0, 100)
